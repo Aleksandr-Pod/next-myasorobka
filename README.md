@@ -1,2 +1,2 @@
 # next-myasorobka
-Refacting from React-Express-Mongo to Next-SQL
+Refactoring from React-Express-Mongo to Next-SQL
