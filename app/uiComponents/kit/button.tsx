@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactElement, ReactNode, useCallback } from "react";
+import { JSX, ReactNode } from "react";
 // import dynamic from "next/dynamic";
 
 // const useServer = dynamic(() => import('react-use-server'), { ssr: false });
@@ -34,18 +34,20 @@ const ButtonMain = ({ children, style, btnType, icon, clickFn, btnClass, ...rest
   children?: ReactNode;
   style: "redLarge" | "redMedium" | "redSmall" | "redCustom" | "addToCart" | "blackSmall" | "blackMedium" | "whiteSmall" | "categoriesBtn" | "transparent" | "redOrder";
   btnType?: "submit" | "button";
-  icon?: ReactElement;
+  icon?: JSX.Element;
   clickFn?: () => void;
   btnClass?: string;
 }) => {
-  // const handleClickFn = useCallback(() => { clickFn ? clickFn() : null }, [clickFn]);
-  // const handleClick = clickFn ? clickFn() : undefined;
   const additionalStyle = btnClass || "";
-
   const currentStyle = `rounded-full ${buttonsStyle[style]} ${additionalStyle}`;
 
   return (
-    <button type={btnType || "button"} className={currentStyle} onClick={clickFn ? clickFn : undefined} {...restProps}>
+    <button
+      type={btnType || "button"}
+      className={currentStyle}
+      onClick={clickFn ? clickFn : undefined}
+      {...restProps}
+    >
       {children}
       {icon}
     </button>
