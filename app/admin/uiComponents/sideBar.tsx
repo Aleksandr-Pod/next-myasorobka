@@ -1,7 +1,8 @@
 'use client'
-import { link } from 'next/link';
+import Link from 'next/link';
 import { usePathname, } from "next/navigation";
 import Image from "next/image";
+import orders from '../authorized/orders/page';
 // import { useNavigate, useLocation } from "react-router-dom";
 // import auth from "../store/auth";
 // import logo from "../images/logo.png";
@@ -16,18 +17,18 @@ const SideBar = () => {
       <Image src='/logo.png' alt="logo" width={100} height={110} className="px-24 py-8" />
       <p className="text-4xl text-txt-main-yellow font-semibold pb-8">Hello ADMIN</p>
 
-      <button type="button" className="text-3xl" onClick={() => { }}>
+      <Link href={'/admin/authorized/products'} className="text-3xl">
         Каталог Товарів
-      </button>
+      </Link>
       {/* <div className="py-1 mb-8">
         <icon.Line active={pathname.endsWith("products")} long />
       </div> */}
 
-      <button type="button" className="text-3xl"
+      <Link href={'/admin/authorized/orders'} className="text-3xl"
       // onClick={() => navigate("orders")}
       >
         Список Замовлень
-      </button>
+      </Link>
       {/* <div className="py-1">
         <icon.Line active={pathname.endsWith("orders")} long />
       </div> */}
