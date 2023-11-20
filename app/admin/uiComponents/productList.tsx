@@ -1,4 +1,4 @@
-import { fetchProducts } from "@/app/uiComponents/utils/dataFetching"
+import { fetchProducts } from "@/app/utils/dataFetching"
 
 export default async function ProductList() {
   const products = await fetchProducts();
