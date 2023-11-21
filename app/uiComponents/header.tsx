@@ -3,7 +3,7 @@
 import Image from "next/image";
 import ButtonMain from "@/app/uiComponents/kit/button";
 import Menu from "@/app/uiComponents/header/menu";
-import { scrollToProducts } from "./utils/scroll";
+import { scrollToProducts } from "@/app/utils/scroll";
 
 const Header = () => {
   return (
