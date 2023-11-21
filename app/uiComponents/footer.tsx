@@ -3,10 +3,10 @@
 import Image from "next/image";
 import ButtonMain from "@/app/uiComponents/kit/button";
 import Menu from "@/app/uiComponents/header/menu";
-import { scrollToTop } from "./utils/scroll";
-import KiwiCode from "./footer/kiwiCode";
-import PrivacyPolicy from "./footer/privacyPolicy";
-import ContactList from "./footer/contactsList";
+import { scrollToTop } from "@/app/utils/scroll";
+import KiwiCode from "@/app/uiComponents/footer/kiwiCode";
+import PrivacyPolicy from "@/app/uiComponents/footer/privacyPolicy";
+import ContactList from "@/app/uiComponents/footer/contactsList";
 
 const Footer = () => {
   return (
