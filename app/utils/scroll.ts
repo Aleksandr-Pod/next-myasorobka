@@ -1,4 +1,4 @@
-export const scrollToTProducts = () => {
+export const scrollToProducts = () => {
   window.scrollTo({ top: 950, behavior: "smooth" });
 };
 
