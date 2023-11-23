@@ -1,4 +1,4 @@
-export type Product = {
+export type TProduct = {
   id: string,
   name: string,
   category: string,
@@ -6,7 +6,7 @@ export type Product = {
   unit: string,
   discount_price: string,
   description: string,
-  img: string,
+  images: string[],
   available: boolean,
   favourite: boolean,
   archived: boolean

@@ -42,19 +42,19 @@ const ButtonMain = ({
   ...restProps
 }: {
   children?: ReactNode;
-  style:
-    | "redLarge"
-    | "redMedium"
-    | "redSmall"
-    | "redCustom"
-    | "addToCart"
-    | "blackSmall"
-    | "blackMedium"
-    | "whiteSmall"
-    | "categoriesBtn"
-    | "transparent"
-    | "redOrder"
-    | "upBtn";
+  style: keyof typeof buttonsStyle;
+  // | "redLarge"
+  // | "redMedium"
+  // | "redSmall"
+  // | "redCustom"
+  // | "addToCart"
+  // | "blackSmall"
+  // | "blackMedium"
+  // | "whiteSmall"
+  // | "categoriesBtn"
+  // | "transparent"
+  // | "redOrder"
+  // | "upBtn";
   btnType?: "submit" | "button";
   icon?: JSX.Element;
   clickFn?: () => void;

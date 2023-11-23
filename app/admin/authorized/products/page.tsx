@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import ProductList from "../../uiComponents/productList";
-import Loading from "../../uiComponents/loading";
+import ProductList from "../../adminUIComponents/productList";
+import Loading from "../../adminUIComponents/loading";
 
 export default function products() {
   return (
