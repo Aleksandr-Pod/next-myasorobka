@@ -1,5 +1,7 @@
+import ProductList from "./admin/adminUIComponents/productList";
 import Footer from "./uiComponents/footer";
 import Header from "./uiComponents/header";
+import AllProductSwiper from "./uiComponents/products/allProdList";
 
 export default function Home() {
   // const textAnimation = {
@@ -27,6 +29,7 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <AllProductSwiper />
       </main>
       <Footer />
     </>

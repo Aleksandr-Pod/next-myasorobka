@@ -32,7 +32,7 @@ async function seedProducts(client) {
         unit VARCHAR(16) NOT NULL,
         discount_price VARCHAR(64) NOT NULL,
         description VARCHAR(255) NOT NULL,
-        img VARCHAR(256),
+        images VARCHAR(255) ARRAY,
         available BOOLEAN NOT NULL,
         favourite BOOLEAN NOT NULL,
         archived BOOLEAN NOT NULL
@@ -46,8 +46,8 @@ async function seedProducts(client) {
       products.map(async (product) => {
         // const hashedPassword = await bcrypt.hash(product.password, 10);
         return client.sql`
-        INSERT INTO products (id, name, category, price, unit, discount_price, description, img, available, favourite, archived)
-        VALUES (${product.id}, ${product.name}, ${product.category}, ${product.price}, ${product.unit}, ${product.discount_price}, ${product.description}, ${product.img}, ${product.available}, ${product.favourite}, ${product.archived})
+        INSERT INTO products (id, name, category, price, unit, discount_price, description, images, available, favourite, archived)
+        VALUES (${product.id}, ${product.name}, ${product.category}, ${product.price}, ${product.unit}, ${product.discount_price}, ${product.description}, '{""}', ${product.available}, ${product.favourite}, ${product.archived})
         ON CONFLICT (id) DO NOTHING
       `;
       }),
