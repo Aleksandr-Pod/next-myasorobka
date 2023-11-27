@@ -1,4 +1,4 @@
-
+'use client'
 // import { useState } from "react";
 // import { useLocation } from "react-router-dom";
 // import { toJS } from "mobx";
@@ -14,7 +14,7 @@ import ButtonMain from "../kit/button";
 // import productStore from "../store/products";
 import { TProduct } from '@/app/utils/types';
 import ProdDescription from "./prodDescription";
-
+import { usePathname } from "next/navigation";
 // const ProductCard = observer(({ product }) => {
 // const [isProductDetailInfoCardShown, setIsProductDetailInfoCardShown] = useState(false);
 // const isProductInCart = ordersStore.checkProductInCart(product);
@@ -22,10 +22,12 @@ import ProdDescription from "./prodDescription";
 // const [qttyBtn, setQttyBtn] = useState(1);
 // const [popUpIsOpened, setPopUpIsOpened] = useState(false);
 // const { pathname } = useLocation();
-// const admin = pathname.endsWith("admin/authorized/products");
+
 
 const ProdCard = ({ product }: { product: TProduct }) => {
-  const admin = false;
+  const pathname = usePathname();
+  const admin = pathname.endsWith("admin/authorized/products");
+  console.log("is admin: ", admin);
   // const addToCart = () => {
   //   ordersStore.addToCart(product, qttyBtn);
   // };
@@ -62,6 +64,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
       // onClick={onProductCardClick}
       className={`${admin ? "h-[316px]" : "h-[356px]"} w-[216px] rounded-3xl bg-bg-white mx-auto cursor-pointer relative`}
     >
+      {/* Server componen */}
       <ProdDescription product={product} />
 
       {admin ? (
