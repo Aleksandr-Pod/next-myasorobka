@@ -24,9 +24,7 @@ const SideBar = () => {
         <icon.Line active={pathname.endsWith("products")} long />
       </div> */}
 
-      <Link href={'/admin/authorized/orders'} className="text-3xl"
-      // onClick={() => navigate("orders")}
-      >
+      <Link href={'/admin/authorized/orders'} className="text-3xl">
         Список Замовлень
       </Link>
       {/* <div className="py-1">
