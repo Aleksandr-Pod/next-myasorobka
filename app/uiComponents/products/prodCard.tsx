@@ -27,7 +27,7 @@ import { usePathname } from "next/navigation";
 const ProdCard = ({ product }: { product: TProduct }) => {
   const pathname = usePathname();
   const admin = pathname.endsWith("admin/authorized/products");
-  console.log("is admin: ", admin);
+  // console.log("is admin: ", admin);
   // const addToCart = () => {
   //   ordersStore.addToCart(product, qttyBtn);
   // };

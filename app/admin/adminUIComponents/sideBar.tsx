@@ -1,8 +1,8 @@
-'use client'
+
 import Link from 'next/link';
-import { usePathname, } from "next/navigation";
+// import { usePathname, } from "next/navigation";
 import Image from "next/image";
-import orders from '../authorized/orders/page';
+// import orders from '../authorized/orders/page';
 // import { useNavigate, useLocation } from "react-router-dom";
 // import auth from "../store/auth";
 // import logo from "../images/logo.png";
@@ -10,11 +10,11 @@ import orders from '../authorized/orders/page';
 
 const SideBar = () => {
   // const navigate = useNavigate();
-  const pathName = usePathname();
+  // const pathName = usePathname();
 
   return (
     <div className="flex flex-col w-[356px] min-h-screen text-txt-main-white text-center font font-medium border-r-2 border-[#FBDD3D] rounded-3xl bg-bg-black">
-      <Image src='/logo.png' alt="logo" width={100} height={110} className="px-24 py-8" />
+      <Image src='/logo.png' alt="logo" width={100} height={110} className="w-[100px] h-auto px-24 py-8" />
       <p className="text-4xl text-txt-main-yellow font-semibold pb-8">Hello ADMIN</p>
 
       <Link href={'/admin/authorized/products'} className="text-3xl">

@@ -20,7 +20,7 @@ const AllProductSwiper = async () => {
 
   return (
     // <div className="h-[780px] w-full py-4 relative product mx-auto">
-    <div className="flex justify-evenly h-[780px] w-full py-4 relative mx-auto">
+    <div className="flex flex-wrap justify-left gap-4 h-[780px] w-full p-4 relative mx-auto">
       {/* <Swiper
         modules={[Navigation, Grid, Pagination]}
         rewind={true}
