@@ -1,6 +1,6 @@
 import { TProduct } from "@/app/utils/types";
 import Image from "next/image";
-import { Line } from "@/app/utils/iconComponent";
+import { Line } from "@/app/uiComponents/kit/iconComponent";
 
 export default function ProdDescription({ product }: { product: TProduct }) {
   return (

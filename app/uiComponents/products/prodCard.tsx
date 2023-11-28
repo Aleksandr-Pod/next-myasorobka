@@ -5,7 +5,7 @@
 // import { observer } from "mobx-react-lite";
 
 // import BlankImg from "../images/BlankPic.jpg";
-import { FavouriteIcon, Trash } from "../../utils/iconComponent";
+import { FavouriteIcon, Trash } from "../kit/iconComponent";
 import RoundNumbers from "./roundNumbers";
 import ButtonMain from "../kit/button";
 // import ConfirmPopup from "./UIKit/ConfirmPopup";
