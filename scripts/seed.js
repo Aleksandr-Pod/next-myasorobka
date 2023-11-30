@@ -2,22 +2,6 @@ const { db } = require('@vercel/postgres');
 const { products } = require('./placeholder-data.js');
 // const bcrypt = require('bcrypt');
 
-async function createTestTable(client) {
-  try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    const createTable = await client.sql`
-    CREATE TABLE IF NOT EXISTS testtable (
-      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      name VARCHAR(64) NOT NULL UNIQUE
-      )
-    `
-  }
-  catch (error) {
-    console.error('Error creating Table:', error);
-    throw error;
-  }
-}
-
 async function seedProducts(client) {
   try {
     // await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;

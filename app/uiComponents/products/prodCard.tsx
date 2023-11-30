@@ -15,6 +15,7 @@ import ButtonMain from "../kit/button";
 import { TProduct } from '@/app/utils/types';
 import ProdDescription from "./prodDescription";
 import { usePathname } from "next/navigation";
+import { toggleFavourite } from "@/app/utils/dataFetching";
 // const ProductCard = observer(({ product }) => {
 // const [isProductDetailInfoCardShown, setIsProductDetailInfoCardShown] = useState(false);
 // const isProductInCart = ordersStore.checkProductInCart(product);
@@ -48,6 +49,8 @@ const ProdCard = ({ product }: { product: TProduct }) => {
   //   });
   // };
 
+  // const handleToggleFavourite = async () => await fn({ productName: product.name })
+  const toggleFav = toggleFavourite.bind(null, product.name)
   // const onProductCardClick = ({ target }) => {
   //   if (target.nodeName === "BUTTON" || admin) {
   //     return;
@@ -76,12 +79,13 @@ const ProdCard = ({ product }: { product: TProduct }) => {
               Редагувати
             </ButtonMain>
           </div>
-          <button
-            className="absolute top-[132px] right-6 w-6 h-6 bg-bg-black rounded"
-          // onClick={() => toggleFavourite()}
-          >
-            <FavouriteIcon filled={product.favourite} />
-          </button>
+          <form action={toggleFav}>
+            <button
+              className="absolute top-[132px] right-6 w-6 h-6 bg-bg-black rounded"
+            >
+              <FavouriteIcon filled={product.favourite} />
+            </button>
+          </form>
           <button
             className="absolute top-3 right-6 w-6 h-6 bg-bg-black rounded"
           // onClick={() => setPopUpIsOpened(true)}
@@ -91,7 +95,8 @@ const ProdCard = ({ product }: { product: TProduct }) => {
         </>
       ) : (
         <RoundNumbers product={product} />
-      )}
+      )
+      }
 
       {/* {popUpIsOpened && (
         <ConfirmPopup
@@ -116,7 +121,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
           onPrev={toggleProductDetailInfoCard}
         />
       )} */}
-    </div>
+    </div >
   );
 };
 
