@@ -15,7 +15,7 @@ import ButtonMain from "../kit/button";
 import { TProduct } from '@/app/utils/types';
 import ProdDescription from "./prodDescription";
 import { usePathname } from "next/navigation";
-import { toggleFavourite } from "@/app/utils/dataFetching";
+import { toggleFavourite } from "@/app/utils/actions";
 // const ProductCard = observer(({ product }) => {
 // const [isProductDetailInfoCardShown, setIsProductDetailInfoCardShown] = useState(false);
 // const isProductInCart = ordersStore.checkProductInCart(product);
@@ -41,16 +41,9 @@ const ProdCard = ({ product }: { product: TProduct }) => {
   //   productStore.deleteProductAction(product);
   //   setPopUpIsOpened(false);
   // };
-  // const toggleFavourite = () => {
-  //   const newProduct = toJS(product);
-  //   productStore.updateProductAction(newProduct._id, {
-  //     ...newProduct,
-  //     favourite: !newProduct.favourite,
-  //   });
-  // };
 
-  // const handleToggleFavourite = async () => await fn({ productName: product.name })
-  const toggleFav = toggleFavourite.bind(null, product.name)
+  const toggleFav = toggleFavourite.bind(null, product.name);
+
   // const onProductCardClick = ({ target }) => {
   //   if (target.nodeName === "BUTTON" || admin) {
   //     return;
