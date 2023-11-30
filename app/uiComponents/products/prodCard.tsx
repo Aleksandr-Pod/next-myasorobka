@@ -1,34 +1,18 @@
 'use client'
-// import { useState } from "react";
-// import { useLocation } from "react-router-dom";
-// import { toJS } from "mobx";
-// import { observer } from "mobx-react-lite";
 
-// import BlankImg from "../images/BlankPic.jpg";
 import { FavouriteIcon, Trash } from "../kit/iconComponent";
 import RoundNumbers from "./roundNumbers";
 import ButtonMain from "../kit/button";
-// import ConfirmPopup from "./UIKit/ConfirmPopup";
-// import ProductDetailInfoCard from "./ProductDetailInfoCard";
-// import ordersStore from "../store/orders";
-// import productStore from "../store/products";
+
 import { TProduct } from '@/app/utils/types';
 import ProdDescription from "./prodDescription";
 import { usePathname } from "next/navigation";
-import { toggleFavourite } from "@/app/utils/actions";
-// const ProductCard = observer(({ product }) => {
-// const [isProductDetailInfoCardShown, setIsProductDetailInfoCardShown] = useState(false);
-// const isProductInCart = ordersStore.checkProductInCart(product);
-
-// const [qttyBtn, setQttyBtn] = useState(1);
-// const [popUpIsOpened, setPopUpIsOpened] = useState(false);
-// const { pathname } = useLocation();
-
+import { deleteProduct, toggleFavourite } from "@/app/utils/actions";
 
 const ProdCard = ({ product }: { product: TProduct }) => {
   const pathname = usePathname();
   const admin = pathname.endsWith("admin/authorized/products");
-  // console.log("is admin: ", admin);
+
   // const addToCart = () => {
   //   ordersStore.addToCart(product, qttyBtn);
   // };
@@ -41,6 +25,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
   //   productStore.deleteProductAction(product);
   //   setPopUpIsOpened(false);
   // };
+  const deleteProd = deleteProduct.bind(null, product.name);
 
   const toggleFav = toggleFavourite.bind(null, product.name);
 
@@ -79,12 +64,14 @@ const ProdCard = ({ product }: { product: TProduct }) => {
               <FavouriteIcon filled={product.favourite} />
             </button>
           </form>
-          <button
-            className="absolute top-3 right-6 w-6 h-6 bg-bg-black rounded"
-          // onClick={() => setPopUpIsOpened(true)}
-          >
-            <Trash />
-          </button>
+          <form action={deleteProd}>
+            <button
+              className="absolute top-3 right-6 w-6 h-6 bg-bg-black rounded"
+            // onClick={() => setPopUpIsOpened(true)}
+            >
+              <Trash />
+            </button>
+          </form>
         </>
       ) : (
         <RoundNumbers product={product} />
