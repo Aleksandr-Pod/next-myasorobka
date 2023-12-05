@@ -2,9 +2,9 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -25,6 +25,7 @@ const config: Config = {
         "bg-black": "#282828",
         "bg-primary": "#FFBA00",
         "bg-yellow": "#FBDD3D",
+        "bg-main-yellow": "#FFBA00",
         "bg-brown": "#3C291A",
         "bg-orange": "#DC8943",
         "bg-light-orange": "#D09E32",
@@ -85,5 +86,5 @@ const config: Config = {
     },
   },
   plugins: [],
-}
+};
 export default config

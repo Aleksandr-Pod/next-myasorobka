@@ -1,6 +1,7 @@
 import Footer from "./uiComponents/footer";
 import Header from "./uiComponents/header";
 import AllProductSwiper from "./uiComponents/products/allProdList";
+import Review from "./uiComponents/reviews";
 
 export default function Home() {
   // const textAnimation = {
@@ -29,6 +30,7 @@ export default function Home() {
           </div>
         </div>
         <AllProductSwiper />
+        <Review />
       </main>
       <Footer />
     </>
