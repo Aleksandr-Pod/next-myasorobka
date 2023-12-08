@@ -6,7 +6,7 @@ import Image from "next/image";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import auth from "../store/auth";
 // import logo from "../images/logo.png";
-// import * as icon from "../icons/iconComponent";
+import { Line } from "@/app/uiComponents/kit/iconComponent";
 
 const SideBar = () => {
   // const navigate = useNavigate();
@@ -20,16 +20,16 @@ const SideBar = () => {
       <Link href={'/admin/authorized/products'} className="text-3xl">
         Каталог Товарів
       </Link>
-      {/* <div className="py-1 mb-8">
-        <icon.Line active={pathname.endsWith("products")} long />
-      </div> */}
+      <div className="py-1 mb-8">
+        <Line long />
+      </div>
 
       <Link href={'/admin/authorized/orders'} className="text-3xl">
         Список Замовлень
       </Link>
-      {/* <div className="py-1">
-        <icon.Line active={pathname.endsWith("orders")} long />
-      </div> */}
+      <div className="py-1">
+        <Line long />
+      </div>
 
       <button
         type="button"
