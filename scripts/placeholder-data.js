@@ -69,7 +69,7 @@ const products = [
     name: 'Что-то новое',
     category: 'Кукареку',
     price: 145,
-    images: [""],
+    images: ["/"],
   },
 ]
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { JSX, ReactNode } from "react";
+import Link from "next/link";
 // import dynamic from "next/dynamic";
 
 // const useServer = dynamic(() => import('react-use-server'), { ssr: false });
@@ -33,6 +34,7 @@ const buttonsStyle = {
 };
 
 const ButtonMain = ({
+  link,
   children,
   style,
   btnType,
@@ -41,20 +43,9 @@ const ButtonMain = ({
   btnClass,
   ...restProps
 }: {
+  link?: string
   children?: ReactNode;
   style: keyof typeof buttonsStyle;
-  // | "redLarge"
-  // | "redMedium"
-  // | "redSmall"
-  // | "redCustom"
-  // | "addToCart"
-  // | "blackSmall"
-  // | "blackMedium"
-  // | "whiteSmall"
-  // | "categoriesBtn"
-  // | "transparent"
-  // | "redOrder"
-  // | "upBtn";
   btnType?: "submit" | "button";
   icon?: JSX.Element;
   clickFn?: () => void;
@@ -63,7 +54,14 @@ const ButtonMain = ({
   const additionalStyle = btnClass || "";
   const currentStyle = `rounded-full ${buttonsStyle[style]} ${additionalStyle}`;
 
-  return (
+  return link ? (
+    <Link href={link}>
+      <button type="button" className={currentStyle} {...restProps}>
+        {children}
+        {icon}
+      </button>
+    </Link>
+  ) : (
     <button type={btnType || "button"} className={currentStyle} onClick={clickFn ? clickFn : undefined} {...restProps}>
       {children}
       {icon}
