@@ -9,7 +9,8 @@ export async function addProduct({name, category, price, unit = "--", discount_p
     const { rows: result } = await sql<TProduct>`
       INSERT INTO products (name, category, price, unit, discount_price, description, images)
       VALUES (${name}, ${category}, ${price}, ${unit}, ${discount_price}, ${description},
-        ARRAY [${images.map(img => img).join(',')}])
+        ARRAY [${images.map(img => img).join(',')}]
+      )
       RETURNING *
     `
     console.log("addProduct result:", result)
