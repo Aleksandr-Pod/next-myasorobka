@@ -4,11 +4,12 @@ import { sql } from "@vercel/postgres";
 import { TProduct } from "./types";
 import { unstable_noStore as noStore, revalidatePath } from 'next/cache';
 
-export async function addProduct({name, category, price, unit = "--", discount_price = "no discount", description = "", images = [""]}: TProduct) {
+export async function addProduct({name, category, price, unit = "--", discount_price = "no discount", description = "", images = [""]}: Partial<TProduct>) {
   try {
     const { rows: result } = await sql<TProduct>`
       INSERT INTO products (name, category, price, unit, discount_price, description, images)
-      VALUES (${name}, ${category}, ${price}, ${unit}, ${discount_price}, ${description}, ${images[0]})
+      VALUES (${name}, ${category}, ${price}, ${unit}, ${discount_price}, ${description},
+        ARRAY [${images.map(img => img).join(',')}])
       RETURNING *
     `
     console.log("addProduct result:", result)

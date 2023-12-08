@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Loading from "../../adminUIComponents/loading";
-import AllProductSwiper from "@/app/uiComponents/products/allProdList";
+import AllProductList from "@/app/uiComponents/products/allProdList";
 import Header from "../../adminUIComponents/header";
 // import { useState } from "react";
 
@@ -17,7 +17,7 @@ export default function Products({ searchParams }: {
       <Header />
 
       <Suspense fallback={<Loading />}>
-        <AllProductSwiper searchParams={{ query: searchParams?.query || undefined }} />
+        <AllProductList searchParams={{ query: searchParams?.query || undefined }} />
       </Suspense>
     </div>
   )

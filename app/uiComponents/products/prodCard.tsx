@@ -7,6 +7,7 @@ import ButtonMain from "../kit/button";
 import { TProduct } from '@/app/utils/types';
 import ProdDescription from "./prodDescription";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { deleteProduct, toggleFavourite } from "@/app/utils/actions";
 
 const ProdCard = ({ product }: { product: TProduct }) => {
@@ -21,10 +22,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
   //   // console.log("edit product");
   //   productStore.setEditProduct(product);
   // };
-  // const deleteProduct = async () => {
-  //   productStore.deleteProductAction(product);
-  //   setPopUpIsOpened(false);
-  // };
+
   const deleteProd = deleteProduct.bind(null, product.name);
 
   const toggleFav = toggleFavourite.bind(null, product.name);
@@ -57,6 +55,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
               Редагувати
             </ButtonMain>
           </div>
+
           <form action={toggleFav}>
             <button
               className="absolute top-[132px] right-6 w-6 h-6 bg-bg-black rounded"
@@ -64,6 +63,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
               <FavouriteIcon filled={product.favourite} />
             </button>
           </form>
+
           <form action={deleteProd}>
             <button
               className="absolute top-3 right-6 w-6 h-6 bg-bg-black rounded"
