@@ -1,11 +1,6 @@
-'use client'
-
 import ButtonMain from "@/app/uiComponents/kit/button"
-import { useState } from "react"
 
-export default function Header({ clickFn }: { clickFn?: (arg: boolean) => void }) {
-  const [addProductPopup, setAddProductPopup] = useState(false);
-
+export default function Header() {
   return (
     <div className="flex mb-7 w-[70vw] relative">
       <div className="w-[240px]"></div>
