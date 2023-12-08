@@ -1,16 +1,9 @@
 
 import Link from 'next/link';
-// import { usePathname, } from "next/navigation";
 import Image from "next/image";
-// import orders from '../authorized/orders/page';
-// import { useNavigate, useLocation } from "react-router-dom";
-// import auth from "../store/auth";
-// import logo from "../images/logo.png";
-import { Line } from "@/app/uiComponents/kit/iconComponent";
+import NavLines from './navLines';
 
 const SideBar = () => {
-  // const navigate = useNavigate();
-  // const pathName = usePathname();
 
   return (
     <div className="flex flex-col w-[356px] min-h-screen text-txt-main-white text-center font font-medium border-r-2 border-[#FBDD3D] rounded-3xl bg-bg-black">
@@ -20,16 +13,12 @@ const SideBar = () => {
       <Link href={'/admin/authorized/products'} className="text-3xl">
         Каталог Товарів
       </Link>
-      <div className="py-1 mb-8">
-        <Line long />
-      </div>
+      <NavLines place='products' />
 
-      <Link href={'/admin/authorized/orders'} className="text-3xl">
+      <Link href={'/admin/authorized/orders'} className="text-3xl mt-8">
         Список Замовлень
       </Link>
-      <div className="py-1">
-        <Line long />
-      </div>
+      <NavLines place='orders' />
 
       <button
         type="button"

@@ -88,7 +88,7 @@ export const Cart = () => (
 );
 
 export const Line = ({ active, long, small, category }: {
-  active?: true,
+  active?: boolean,
   long?: boolean,
   small?: boolean,
   category?: boolean
