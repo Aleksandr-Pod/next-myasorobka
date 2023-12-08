@@ -63,7 +63,14 @@ const products = [
     available: true,
     favourite: true,
     archived: false,
-  }
+  },
+  {
+    id: 'cd8bf441-9def-4b18-a91e-ed0a8968e08f',
+    name: 'Что-то новое',
+    category: 'Кукареку',
+    price: 145,
+    images: [""],
+  },
 ]
 
 const orders = [

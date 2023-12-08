@@ -12,14 +12,14 @@ async function seedProducts(client) {
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(64) NOT NULL UNIQUE,
         category VARCHAR(64) NOT NULL,
-        price smallint NOT NULL,
-        unit VARCHAR(16) NOT NULL,
-        discount_price VARCHAR(64) NOT NULL,
-        description VARCHAR(255) NOT NULL,
-        images VARCHAR(255) ARRAY,
-        available BOOLEAN NOT NULL,
-        favourite BOOLEAN NOT NULL,
-        archived BOOLEAN NOT NULL
+        price smallint DEFAULT 0,
+        unit VARCHAR(16) DEFAULT '--',
+        discount_price VARCHAR(64) DEFAULT 'no discount',
+        description VARCHAR(255) DEFAULT 'no description',
+        images VARCHAR(255) ARRAY DEFAULT '{""}',
+        available BOOLEAN DEFAULT true,
+        favourite BOOLEAN DEFAULT false,
+        archived BOOLEAN DEFAULT false
       );
     `;
 

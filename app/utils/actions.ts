@@ -4,6 +4,20 @@ import { sql } from "@vercel/postgres";
 import { TProduct } from "./types";
 import { unstable_noStore as noStore, revalidatePath } from 'next/cache';
 
+export async function addProduct(product: TProduct) {
+  const { rows: result } = await sql<TProduct>`
+  INSERT INTO products (name, category, price, unit, discount_price, description, images)
+  VALUES (
+    ${product.name},
+    ${product.category},
+    ${product.price},
+    ${product.unit},
+    ${product.discount_price},
+    ${product.description},
+    ${product.images[0]}
+  )`
+};
+
 export async function toggleFavourite( productName: string ) {
   noStore();
 
