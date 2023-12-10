@@ -10,7 +10,7 @@ export default function AddProduct() {
     unit: undefined,
     discount_price: undefined,
     description: "something to eat",
-    images: ["/products/Котлеты_куриные.jpg"]
+    images: ["/products/Chicken_nuggets.jpg"]
   };
   const handleAddProduct = addProduct.bind(null, product);
 
