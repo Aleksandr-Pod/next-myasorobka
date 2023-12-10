@@ -3,10 +3,11 @@ import Image from "next/image";
 import { Line } from "@/app/uiComponents/kit/iconComponent";
 
 export default function ProdDescription({ product }: { product: TProduct }) {
+  const validProductImage = product.images[0].startsWith('/products/') ? product.images[0] : "";
   return (
     <>
       <Image
-        src={product.images[0] || "/BlankPic.jpg"}
+        src={validProductImage || "/BlankPic.jpg"}
         alt={"product image"}
         width={216}
         height={168}

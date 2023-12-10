@@ -10,7 +10,7 @@ export default function AddProduct() {
     unit: undefined,
     discount_price: undefined,
     description: "something to eat",
-    images: [""]
+    images: ["/products/Котлеты_куриные.jpg"]
   };
   const handleAddProduct = addProduct.bind(null, product);
 
