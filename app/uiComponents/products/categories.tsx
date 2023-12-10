@@ -32,7 +32,7 @@ const Categories = ({ products }: { products: TProduct[] }) => {
     <div className="flex justify-center gap-x-5 w-full mx-auto ">
       {categories.map((el) => (
         <div key={el}>
-          <div className="px-4 mx-auto w-full ml-14 lg:ml-0">
+          <div className="px-4 mx-auto w-full">
             <ButtonMain
               style={"categoriesBtn"}
               clickFn={() => handleFilter(el)}

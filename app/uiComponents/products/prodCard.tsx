@@ -39,8 +39,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
   // };
 
   return (
-    <div
-      // onClick={onProductCardClick}
+    <Link href={`product/${product.id}`}
       className={`${admin ? "h-[316px]" : "h-[356px]"} w-[216px] rounded-3xl bg-bg-white mx-auto cursor-pointer relative`}
     >
       {/* Server componen */}
@@ -101,7 +100,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
           onPrev={toggleProductDetailInfoCard}
         />
       )} */}
-    </div >
+    </Link >
   );
 };
 
