@@ -8,7 +8,7 @@ export default function ProdDescription({ product }: { product: TProduct }) {
     <>
       <Image
         src={validProductImage || "/BlankPic.jpg"}
-        alt={"product image"}
+        alt="product image"
         width={216}
         height={168}
         className={"h-[168px] w-full object-cover rounded-t-3xl"}

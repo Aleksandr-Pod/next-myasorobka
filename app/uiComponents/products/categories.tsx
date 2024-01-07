@@ -12,9 +12,9 @@ const Categories = ({ products }: { products: TProduct[] }) => {
   const searchParams = useSearchParams();
 
   const categories = ["Всі продукти"];
-  products.forEach((el) => {
-    if (!categories.includes(el.category)) {
-      categories.push(el.category);
+  products.forEach(({category}) => {
+    if (!categories.includes(category)) {
+      categories.push(category);
     }
   });
 

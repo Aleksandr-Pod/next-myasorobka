@@ -2,9 +2,6 @@
 
 import { JSX, ReactNode } from "react";
 import Link from "next/link";
-// import dynamic from "next/dynamic";
-
-// const useServer = dynamic(() => import('react-use-server'), { ssr: false });
 
 const buttonsStyle = {
   redSmall:

@@ -37,7 +37,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
   // const toggleProductDetailInfoCard = () => {
   //   setIsProductDetailInfoCardShown((prevState) => !prevState);
   // };
-
+  const style = "absolute right-6 w-6 h-6 bg-bg-black rounded"
   return (
     <Link href={`product/${product.id}`}
       className={`${admin ? "h-[316px]" : "h-[356px]"} w-[216px] rounded-3xl bg-bg-white mx-auto cursor-pointer relative`}
@@ -48,7 +48,7 @@ const ProdCard = ({ product }: { product: TProduct }) => {
       {admin ? (
         <>
           <div className="flex justify-center">
-            <ButtonMain style={"whiteSmall"}
+            <ButtonMain style="whiteSmall"
             // clickFn={editProduct}
             >
               Редагувати
@@ -56,18 +56,13 @@ const ProdCard = ({ product }: { product: TProduct }) => {
           </div>
 
           <form action={toggleFav}>
-            <button
-              className="absolute top-[132px] right-6 w-6 h-6 bg-bg-black rounded"
-            >
+            <button className={`${style} top-[132px]`} >
               <FavouriteIcon filled={product.favourite} />
             </button>
           </form>
 
           <form action={deleteProd}>
-            <button
-              className="absolute top-3 right-6 w-6 h-6 bg-bg-black rounded"
-            // onClick={() => setPopUpIsOpened(true)}
-            >
+            <button className={`${style} top-3`} >
               <Trash />
             </button>
           </form>

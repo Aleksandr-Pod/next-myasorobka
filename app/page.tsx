@@ -1,19 +1,9 @@
 import Footer from "./uiComponents/footer";
 import Header from "./uiComponents/header";
-import AllProductSwiper from "./uiComponents/products/allProdList";
+import AllProductList from "./uiComponents/products/allProdList";
 
 export default function Home() {
-  // const textAnimation = {
-  //   hidden: {
-  //     scale: 0,
-  //     opacity: 0,
-  //   },
-  //   visible: (custom: number) => ({
-  //     scale: 1,
-  //     opacity: 1,
-  //     transition: { delay: custom * 0.4, duration: 0.7 },
-  //   }),
-  // };
+
   return (
     <>
       <main>
@@ -28,7 +18,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <AllProductSwiper />
+        <AllProductList />
       </main>
       <Footer />
     </>

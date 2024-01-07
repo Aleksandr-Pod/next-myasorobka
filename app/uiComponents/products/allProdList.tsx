@@ -3,7 +3,7 @@ import { fetchProducts } from "@/app/utils/dataFetching";
 import Categories from "./categories";
 import ProdList from "./productList";
 
-const AllProductSwiper = async ({ searchParams }: {
+const AllProductList = async ({ searchParams }: {
   searchParams?: { query?: string, page?: string };
 }) => {
   const products = await fetchProducts();
@@ -24,4 +24,4 @@ const AllProductSwiper = async ({ searchParams }: {
   );
 };
 
-export default AllProductSwiper;
+export default AllProductList;
