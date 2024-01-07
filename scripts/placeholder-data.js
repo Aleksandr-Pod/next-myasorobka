@@ -7,7 +7,7 @@ const products = [
     unit: "piece",
     discount_price: "no discount",
     description: "Sweat dry meat with spices",
-    img: "",
+    images: ["/"],
     available: true,
     favourite: false,
     archived: false,
@@ -20,7 +20,7 @@ const products = [
     unit: "kg",
     discount_price: "no discount",
     description: "Sosiska est sosiska",
-    img: "",
+    images: ["/"],
     available: true,
     favourite: true,
     archived: false,
@@ -33,7 +33,7 @@ const products = [
     unit: "кг",
     discount_price: "no discount",
     description: "Ушки свинки в специях",
-    img: "",
+    images: ["/"],
     available: true,
     favourite: false,
     archived: false,
@@ -46,7 +46,7 @@ const products = [
     unit: "piece",
     discount_price: "no discount",
     description: "Пятак как пятак",
-    img: "",
+    images: ["/"],
     available: true,
     favourite: false,
     archived: false,
@@ -59,11 +59,39 @@ const products = [
     unit: "кг",
     discount_price: "no discount",
     description: "Курочка в маринаде для мангала",
-    img: "",
+    images: ["/"],
     available: true,
     favourite: true,
     archived: false,
-  }
+  },
+  {
+    id: 'cd8bf441-9def-4b18-a91e-ed0a8968e08f',
+    name: 'Что-то новое',
+    category: 'Кукареку',
+    price: 145,
+    images: ["/"],
+  },
 ]
 
+const orders = [
+  {
+    id: '1123123-123213',
+    order_number: 23,
+    customer_name: "Sudzi",
+    delivery_address: "address address",
+    total_amount: 530,
+    products: [
+      {
+        product: products[2].id,
+        quantity: 2
+      },
+      {
+        product: products[0].id,
+        quantity: 1
+      }
+    ],
+    order_date: "2023-07-22T01:04:39.620+00:00"
+  },
+
+]
   module.exports = { products };

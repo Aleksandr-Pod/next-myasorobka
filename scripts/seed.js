@@ -2,22 +2,6 @@ const { db } = require('@vercel/postgres');
 const { products } = require('./placeholder-data.js');
 // const bcrypt = require('bcrypt');
 
-async function createTestTable(client) {
-  try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    const createTable = await client.sql`
-    CREATE TABLE IF NOT EXISTS testtable (
-      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      name VARCHAR(64) NOT NULL UNIQUE
-      )
-    `
-  }
-  catch (error) {
-    console.error('Error creating Table:', error);
-    throw error;
-  }
-}
-
 async function seedProducts(client) {
   try {
     // await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -28,14 +12,14 @@ async function seedProducts(client) {
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(64) NOT NULL UNIQUE,
         category VARCHAR(64) NOT NULL,
-        price smallint NOT NULL,
-        unit VARCHAR(16) NOT NULL,
-        discount_price VARCHAR(64) NOT NULL,
-        description VARCHAR(255) NOT NULL,
-        img VARCHAR(256),
-        available BOOLEAN NOT NULL,
-        favourite BOOLEAN NOT NULL,
-        archived BOOLEAN NOT NULL
+        price smallint DEFAULT 0,
+        unit VARCHAR(16) DEFAULT '--',
+        discount_price VARCHAR(64) DEFAULT 'no discount',
+        description VARCHAR(255) DEFAULT 'no description',
+        images VARCHAR(255) ARRAY DEFAULT '{""}',
+        available BOOLEAN DEFAULT true,
+        favourite BOOLEAN DEFAULT false,
+        archived BOOLEAN DEFAULT false
       );
     `;
 
@@ -46,8 +30,8 @@ async function seedProducts(client) {
       products.map(async (product) => {
         // const hashedPassword = await bcrypt.hash(product.password, 10);
         return client.sql`
-        INSERT INTO products (id, name, category, price, unit, discount_price, description, img, available, favourite, archived)
-        VALUES (${product.id}, ${product.name}, ${product.category}, ${product.price}, ${product.unit}, ${product.discount_price}, ${product.description}, ${product.img}, ${product.available}, ${product.favourite}, ${product.archived})
+        INSERT INTO products (id, name, category, price, unit, discount_price, description, images, available, favourite, archived)
+        VALUES (${product.id}, ${product.name}, ${product.category}, ${product.price}, ${product.unit}, ${product.discount_price}, ${product.description}, '{""}', ${product.available}, ${product.favourite}, ${product.archived})
         ON CONFLICT (id) DO NOTHING
       `;
       }),

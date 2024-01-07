@@ -1,6 +1,7 @@
-'use client'
+"use client";
 
 import { JSX, ReactNode } from "react";
+import Link from "next/link";
 // import dynamic from "next/dynamic";
 
 // const useServer = dynamic(() => import('react-use-server'), { ssr: false });
@@ -9,7 +10,7 @@ const buttonsStyle = {
   redSmall:
     "bg-bg-red w-[140px] h-[32px] py-1 text-base font-semibold text-txt-main-white hover:shadow-btnRedS focus:shadow-btnRedS mx-auto",
   redMedium:
-    "bg-bg-red w-[240px] h-[56px] py-[14px] text-xl font-semibold text-txt-main-white hover:shadow-btnRed focus:shadow-btnRed mx-auto",
+    "bg-bg-red w-[240px] h-[56px] py-[14px] text-xl font-semibold text-txt-main-white hover:shadow-btnRed focus:shadow-btnRed",
   redLarge:
     "bg-bg-red w-[280px] h-[56px] py-[14px] text-xl font-semibold text-txt-main-white hover:shadow-btnRed focus:shadow-btnRed mx-auto disabled:opacity-50 disabled:hover:shadow-none",
   addToCart:
@@ -28,11 +29,23 @@ const buttonsStyle = {
     "min-w-[140px] h-[32px] py-1 text-base font-semibold text-txt-main-white border border-2 border-bg-white hover:shadow-btnWhiteS focus:shadow-btnWhiteS mx-auto",
   redOrder:
     "bg-bg-red min-w-[300px] px-5 py-[14px] text-3xl font-bold text-txt-main-white hover:shadow-btnRed focus:shadow-btnRed mx-auto disabled:opacity-50 disabled:hover:shadow-none transition-all ease-linear animate-ripple hover:animate-none",
+  upBtn:
+    "hidden lg:absolute w-[64px] h-[64px] rounded-full p-5 bg-bg-white lg:top-[224px] lg:right-[40px] xl:top-[72px] xl:right-[72px] shadow-swiper hover:shadow-btnWhite focus:shadow-btnWhite",
 };
 
-const ButtonMain = ({ children, style, btnType, icon, clickFn, btnClass, ...restProps }: {
+const ButtonMain = ({
+  link,
+  children,
+  style,
+  btnType,
+  icon,
+  clickFn,
+  btnClass,
+  ...restProps
+}: {
+  link?: string
   children?: ReactNode;
-  style: "redLarge" | "redMedium" | "redSmall" | "redCustom" | "addToCart" | "blackSmall" | "blackMedium" | "whiteSmall" | "categoriesBtn" | "transparent" | "redOrder";
+  style: keyof typeof buttonsStyle;
   btnType?: "submit" | "button";
   icon?: JSX.Element;
   clickFn?: () => void;
@@ -41,13 +54,15 @@ const ButtonMain = ({ children, style, btnType, icon, clickFn, btnClass, ...rest
   const additionalStyle = btnClass || "";
   const currentStyle = `rounded-full ${buttonsStyle[style]} ${additionalStyle}`;
 
-  return (
-    <button
-      type={btnType || "button"}
-      className={currentStyle}
-      onClick={clickFn ? clickFn : undefined}
-      {...restProps}
-    >
+  return link ? (
+    <Link href={link}>
+      <button type="button" className={currentStyle} {...restProps}>
+        {children}
+        {icon}
+      </button>
+    </Link>
+  ) : (
+    <button type={btnType || "button"} className={currentStyle} onClick={clickFn ? clickFn : undefined} {...restProps}>
       {children}
       {icon}
     </button>
