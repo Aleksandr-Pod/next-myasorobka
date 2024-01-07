@@ -5,16 +5,14 @@ import Header from "../../adminUIComponents/header";
 // import { useState } from "react";
 
 export default function Products({ searchParams }: {
-  searchParams?: {
-    query?: string
-  }
+  searchParams?: { query?: string }
 }) {
   // const [addProductPopup, setAddProductPopup] = useState(false);
   // console.log("search params in product page:", searchParams);
 
   return (
     <div>
-      <Header />
+      <Header title="Каталог Товарів" btnName="Додати товар" btnLink="products/addProduct" />
 
       <Suspense fallback={<Loading />}>
         <AllProductList searchParams={{ query: searchParams?.query || undefined }} />
