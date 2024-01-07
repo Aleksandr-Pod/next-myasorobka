@@ -1,5 +1,5 @@
 'use client'
-import { link } from 'next/link';
+import { Link } from 'next/link';
 import { usePathname, } from "next/navigation";
 import Image from "next/image";
 // import { useNavigate, useLocation } from "react-router-dom";
