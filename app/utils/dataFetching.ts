@@ -13,3 +13,13 @@ export async function fetchProducts() {
   }
 };
 
+export async function fetchOrders() {
+  noStore();
+  try {
+    const orders = await sql<TOrders>`SELECT * FROM orders`;
+    return orders.rows;
+  } catch (error) {
+  console.error({source: "fetchOrders error", message: error})
+  }
+}
+

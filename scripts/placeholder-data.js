@@ -75,23 +75,31 @@ const products = [
 
 const orders = [
   {
-    id: '1123123-123213',
     order_number: 23,
     customer_name: "Sudzi",
     delivery_address: "address address",
-    total_amount: 530,
-    products: [
-      {
-        product: products[2].id,
-        quantity: 2
-      },
-      {
-        product: products[0].id,
-        quantity: 1
-      }
-    ],
-    order_date: "2023-07-22T01:04:39.620+00:00"
+    // total_amount: 530,
+    // products: [
+    //   {
+    //     product: products[2].id,
+    //     quantity: 2
+    //   },
+    //   {
+    //     product: products[0].id,
+    //     quantity: 1
+    //   }
+    // ],
+    order_date: "2023-07-22T01:04:39.620+00:00",
+    tel: "(033)-152-44-87",
+    archived: false
   },
-
+{
+    order_number: 27,
+    customer_name: "Angel",
+    delivery_address: "NY city, 56 Derrick str.",
+    order_date: "2023-08-25T01:04:39.620+00:00",
+    tel: "(033)-152-44-87",
+    archived: true
+  },
 ]
-  module.exports = { products };
+  module.exports = { products, orders };
