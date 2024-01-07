@@ -49,6 +49,7 @@ async function seedProducts(client) {
   }
 }
 
+    // Insert data into the "orders" table
 async function seedOrders(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -59,7 +60,7 @@ async function seedOrders(client) {
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         order_number smallint,
         delivery_address VARCHAR(255),
-        order_date TIMESTAMP,
+        order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         customer_name VARCHAR(63),
         tel VARCHAR(15),
         archived BOOLEAN DEFAULT false
@@ -72,7 +73,7 @@ async function seedOrders(client) {
         return client.sql`
           INSERT INTO orders (id, order_number, delivery_address, order_date, customer_name, tel, archived)
           VALUES (${id}, ${order_number}, ${delivery_address}, ${order_date}, ${customer_name}, ${tel}, ${archived})
-          IN CONFLICT (id) do NOTHING
+          ON CONFLICT (id) DO NOTHING
         `
       })
     );

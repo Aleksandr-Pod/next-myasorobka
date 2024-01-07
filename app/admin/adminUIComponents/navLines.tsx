@@ -6,7 +6,7 @@ import { Line } from "@/app/uiComponents/kit/iconComponent";
 export default function NavLines({ place }: { place: 'orders' | 'products' }) {
 
   const pathName = usePathname();
-  console.log('pathName:', pathName);
+  // console.log('pathName:', pathName);
   // console.log(window.location.pathname);
 
   return (

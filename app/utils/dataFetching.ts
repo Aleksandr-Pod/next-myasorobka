@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { TProduct } from "./types";
+import { TProduct, TOrders } from "./types";
 import { unstable_noStore as noStore } from 'next/cache'
 
 export async function fetchProducts() {
@@ -13,11 +13,14 @@ export async function fetchProducts() {
   }
 };
 
-export async function fetchOrders() {
+export async function fetchOrders(archived: boolean) {
   noStore();
+  // const request = archived ? `SELECT * FROM orders WHERE archived = true` : `SELECT * FROM orders WHERE archived = false`
+  console.log("fetchOrders ...")
   try {
-    const orders = await sql<TOrders>`SELECT * FROM orders`;
+    const orders = archived ? await sql<TOrders>`SELECT * FROM orders WHERE archived = true` : await sql<TOrders>`SELECT * FROM orders WHERE archived = false`;
     return orders.rows;
+    console.log("Замовлення: " + orders.rows);
   } catch (error) {
   console.error({source: "fetchOrders error", message: error})
   }

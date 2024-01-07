@@ -11,3 +11,13 @@ export type TProduct = {
   favourite: boolean,
   archived: boolean
 }
+
+export type TOrders = {
+  id: string,
+  order_number: number,
+  delivery_address: string,
+  order_date: string,
+  customer_name: string,
+  tel: string,
+  archived: boolean
+}
