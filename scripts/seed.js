@@ -58,9 +58,10 @@ async function seedOrders(client) {
       CREATE TABLE IF NOT EXISTS orders (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         order_number smallint,
-        order_date DATE,
-        customer_name VARCHAR(64),
-        tel VARCHAR(16),
+        delivery_address VARCHAR(255),
+        order_date TIMESTAMP,
+        customer_name VARCHAR(63),
+        tel VARCHAR(15),
         archived BOOLEAN DEFAULT false
       )`;
     

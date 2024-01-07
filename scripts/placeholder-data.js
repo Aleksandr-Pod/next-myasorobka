@@ -89,7 +89,7 @@ const orders = [
     //     quantity: 1
     //   }
     // ],
-    order_date: "2023-07-22T01:04:39.620+00:00",
+    order_date: "2023-07-22 01:04:39",
     tel: "(033)-152-44-87",
     archived: false
   },
@@ -97,7 +97,7 @@ const orders = [
     order_number: 27,
     customer_name: "Angel",
     delivery_address: "NY city, 56 Derrick str.",
-    order_date: "2023-08-25T01:04:39.620+00:00",
+    order_date: "2023-08-25 01:04:39",
     tel: "(033)-152-44-87",
     archived: true
   },
