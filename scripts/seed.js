@@ -10,7 +10,7 @@ async function seedProducts(client) {
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS products (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-        name VARCHAR(32) NOT NULL UNIQUE,
+        product_name VARCHAR(32) NOT NULL UNIQUE,
         category VARCHAR(32) NOT NULL,
         price SMALLINT DEFAULT 0,
         unit VARCHAR(16) DEFAULT '--',
@@ -30,8 +30,8 @@ async function seedProducts(client) {
       products.map(async (product) => {
         // const hashedPassword = await bcrypt.hash(product.password, 10);
         return client.sql`
-        INSERT INTO products (id, name, category, price, unit, discount_price, description, images, available, favourite, archived)
-        VALUES (${product.id}, ${product.name}, ${product.category}, ${product.price}, ${product.unit}, ${product.discount_price}, ${product.description}, '{""}', ${product.available}, ${product.favourite}, ${product.archived})
+        INSERT INTO products (id, product_name, category, price, unit, discount_price, description, images, available, favourite, archived)
+        VALUES (${product.id}, ${product.product_name}, ${product.category}, ${product.price}, ${product.unit}, ${product.discount_price}, ${product.description}, '{""}', ${product.available}, ${product.favourite}, ${product.archived})
         ON CONFLICT (id) DO NOTHING
       `;
       }),
@@ -102,7 +102,7 @@ async function seedOrderProducts(client) {
       product_name VARCHAR(32),
       qtty SMALLINT DEFAULT 1,
       FOREIGN KEY (order_number) REFERENCES orders(order_number),
-      FOREIGN KEY (product_name) REFERENCES products(name)
+      FOREIGN KEY (product_name) REFERENCES products(product_name)
     )
     `;
     console.log("insert values into ORDER_PRODUCTS ...");

@@ -1,7 +1,7 @@
 const products = [
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    name: 'Aldebaran',
+    product_name: 'Aldebaran',
     category: 'be-e-e',
     price: 230,
     unit: "piece",
@@ -14,7 +14,7 @@ const products = [
   },
   {
     id: '3958dc9e-712f-4377-85e9-fec34736442a',
-    name: 'Sosiska',
+    product_name: 'Sosiska',
     category: 'be-e-e',
     price: 150,
     unit: "kg",
@@ -27,7 +27,7 @@ const products = [
   },
   {
     id: '3958621e-712f-4377-85e9-fec4b6a6442a',
-    name: 'Свинячи ушки',
+    product_name: 'Свинячи ушки',
     category: 'Хрю-хрю',
     price: 190,
     unit: "кг",
@@ -40,7 +40,7 @@ const products = [
   },
   {
     id: '3958dc9e-712f-1111-85e9-fec75116442a',
-    name: 'Хрюшкин пятак',
+    product_name: 'Хрюшкин пятак',
     category: 'Хрю-хрю',
     price: 80,
     unit: "piece",
@@ -53,7 +53,7 @@ const products = [
   },
   {
     id: '3950000e-712f-4377-85e9-fec4b6a6442a',
-    name: 'Курочка',
+    product_name: 'Курочка',
     category: 'Кукареку',
     price: 177,
     unit: "кг",
@@ -66,7 +66,7 @@ const products = [
   },
   {
     id: 'cd8bf441-9def-4b18-a91e-ed0a8968e08f',
-    name: 'Что-то новое',
+    product_name: 'Что-то новое',
     category: 'Кукареку',
     price: 145,
     images: ["/"],

@@ -1,12 +1,13 @@
-import { fetchOrders } from "@/app/utils/dataFetching";
+import { fetchOrders, fetchFullOrders } from "@/app/utils/dataFetching";
 import OrderItem from "./orderItem";
 
 const OrdersList = async ({ archived }: { archived: boolean }) => {
   const orders = await fetchOrders(archived);
-  // console.log("Orders list: ", orders);
+  const fullOrders = await fetchFullOrders(archived);
+  console.log("Full Orders list: ", fullOrders);
 
   return (
-    <div className="text-txt-main-white text-center w-full flex flex-col gap-4 h-[85vh] bg-bg-black">
+    <div className="text-txt-main-white text-center w-[calc(100vw-356px)] flex flex-col gap-4 h-[85vh] bg-bg-black">
       <div className="flex text-lg bg-bg-grey">
         {" "}
         {/*header*/}

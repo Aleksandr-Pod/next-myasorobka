@@ -28,3 +28,21 @@ export async function fetchOrders(archived: boolean) {
   }
 }
 
+export async function fetchFullOrders(archived: boolean) {
+  noStore();
+  console.log("fetchFullOrders ...");
+
+  try {
+    const orders = await sql<TOrders>`
+    SELECT * FROM orders
+    JOIN order_products USING (order_number)
+    JOIN products USING (product_name)
+
+    WHERE orders.archived = ${archived}`;
+    console.log("Замовлення з продуктами: ", orders.rows);
+    return orders.rows;
+
+  } catch (error) {
+  console.error({source: "fetch full orders error", message: error})
+  }
+}
