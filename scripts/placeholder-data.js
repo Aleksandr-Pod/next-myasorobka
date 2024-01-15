@@ -76,6 +76,7 @@ const products = [
 const orders = [
   {
     order_number: 23,
+    total_sum: 550,
     customer_name: "Sudzi",
     delivery_address: "address address",
     order_date: "2023-07-22 01:04:39",
@@ -84,6 +85,7 @@ const orders = [
   },
   {
     order_number: 27,
+    total_sum: 300,
     customer_name: "Angel",
     delivery_address: "NY city, 56 Derrick str.",
     order_date: "2023-08-25 01:04:39",
@@ -92,6 +94,7 @@ const orders = [
   },
   {
     order_number: 30,
+    total_sum: 990,
     customer_name: "Brad",
     delivery_address: "Kyiv, 20 Naberezhnaya str.",
     order_date: "2024-01-05 12:04:00",

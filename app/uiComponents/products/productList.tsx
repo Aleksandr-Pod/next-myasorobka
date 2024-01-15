@@ -6,7 +6,7 @@ export default function ProdList({ products }: { products?: TProduct[] }) {
     <div className="flex flex-wrap justify-evenly gap-4 mx-auto">
       {products ? (
         products.map(product => (
-          <div key={product.name}>
+          <div key={product.product_name}>
             <ProductCard product={product} />
           </div>
         ))) : (

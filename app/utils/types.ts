@@ -1,6 +1,6 @@
 export type TProduct = {
   id: string,
-  name: string,
+  product_name: string,
   category: string,
   price: number,
   unit: string,
@@ -14,6 +14,7 @@ export type TProduct = {
 
 export type TOrders = {
   id: string,
+  total_sum: number,
   order_number: number,
   delivery_address: string,
   order_date: string,

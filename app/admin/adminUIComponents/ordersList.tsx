@@ -3,8 +3,8 @@ import OrderItem from "./orderItem";
 
 const OrdersList = async ({ archived }: { archived: boolean }) => {
   const orders = await fetchOrders(archived);
-  const fullOrders = await fetchFullOrders(archived);
-  console.log("Full Orders list: ", fullOrders);
+  // const fullOrders = await fetchFullOrders(archived);
+  // console.log("Full Orders list: ", fullOrders);
 
   return (
     <div className="text-txt-main-white text-center w-[calc(100vw-356px)] flex flex-col gap-4 h-[85vh] bg-bg-black">
@@ -18,13 +18,6 @@ const OrdersList = async ({ archived }: { archived: boolean }) => {
         <p className="w-[11.1vw]">Сума</p>
         <p className="w-[29.5vw]">Адреса доставки</p>
         <p className="w-[3.7vw]"></p>
-        {/* <p className="w-[80px]">Номер</p>
-        <p className="w-[175px]">Дата замовленя</p>
-        <p className="w-[168px]">Замовник</p>
-        <p className="w-[180px]">Номмер телефону</p>
-        <p className="w-[120px]">Сума</p>
-        <p className="w-[320px]">Адреса доставки</p>
-        <p className="w-[40px]"></p> */}
       </div>
       <div className="w-full flex flex-col gap-4 overflow-y-auto">
         {orders?.length &&

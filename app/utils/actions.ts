@@ -4,12 +4,12 @@ import { sql } from "@vercel/postgres";
 import { TProduct } from "./types";
 import { unstable_noStore as noStore, revalidatePath } from 'next/cache';
 
-export async function addProduct({name, category, price, unit = "--", discount_price = "no discount", description = "", images = [""]}: Partial<TProduct>) {
+export async function addProduct({product_name, category, price, unit = "--", discount_price = "no discount", description = "", images = [""]}: Partial<TProduct>) {
   noStore();
   try {
     const { rows: result } = await sql<TProduct>`
-      INSERT INTO products (name, category, price, unit, discount_price, description, images)
-      VALUES (${name}, ${category}, ${price}, ${unit}, ${discount_price}, ${description},
+      INSERT INTO products (product_name, category, price, unit, discount_price, description, images)
+      VALUES (${product_name}, ${category}, ${price}, ${unit}, ${discount_price}, ${description},
         ARRAY [${images.join(',')}]
       )
       RETURNING *
@@ -47,3 +47,20 @@ export async function deleteProduct(productName: string) {
     console.error({source: "fetchProduct error", message: error})
   }
 };
+
+export async function fetchProductsInOrder(orderNumber: number) {
+  noStore();
+  console.log('Action: fetch products in order number ...', orderNumber);
+
+  try {
+    const products = await sql<TProduct & {qtty: number}>`
+      SELECT * FROM order_products
+      JOIN products USING (product_name)
+      WHERE order_number = ${orderNumber}
+    `;
+    // console.log("Result of Action:", products.rows);
+    return products.rows;
+  } catch (error) {
+    console.error({source: "fetch products in order error", message: error})
+  }
+}

@@ -16,11 +16,11 @@ export async function fetchProducts() {
 
 export async function fetchOrders(archived: boolean) {
   noStore();
-  console.log("fetchOrders ...");
+  // console.log("fetchOrders ...");
 
   try {
     const orders = await sql<TOrders>`SELECT * FROM orders WHERE archived = ${archived}`;
-    console.log("Замовлення: ", orders.rows);
+    // console.log("Замовлення: ", orders.rows);
     return orders.rows;
 
   } catch (error) {
@@ -33,7 +33,7 @@ export async function fetchFullOrders(archived: boolean) {
   console.log("fetchFullOrders ...");
 
   try {
-    const orders = await sql<TOrders>`
+    const orders = await sql<TOrders & TProduct & {qtty: number}>`
     SELECT * FROM orders
     JOIN order_products USING (order_number)
     JOIN products USING (product_name)
@@ -44,5 +44,21 @@ export async function fetchFullOrders(archived: boolean) {
 
   } catch (error) {
   console.error({source: "fetch full orders error", message: error})
+  }
+}
+
+export async function fetchProductsInOrder(orderNumber: number) {
+  noStore();
+  console.log('fetch products in order: ...');
+
+  try {
+    const products = await sql<TProduct & {qtty: number}>`
+      SELECT * FROM order_products
+      JOIN products USING (product_name)
+      WHERE order_number = ${orderNumber}
+    `
+    return products.rows;
+  } catch (error) {
+    console.error({source: "fetch products in order error", message: error})
   }
 }

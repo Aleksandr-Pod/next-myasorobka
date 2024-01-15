@@ -23,9 +23,9 @@ const ProdCard = ({ product }: { product: TProduct }) => {
   //   productStore.setEditProduct(product);
   // };
 
-  const deleteProd = deleteProduct.bind(null, product.name);
+  const deleteProd = deleteProduct.bind(null, product.product_name);
 
-  const toggleFav = toggleFavourite.bind(null, product.name);
+  const toggleFav = toggleFavourite.bind(null, product.product_name);
 
   // const onProductCardClick = ({ target }) => {
   //   if (target.nodeName === "BUTTON" || admin) {

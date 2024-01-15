@@ -1,12 +1,12 @@
-import { TProduct } from "@/app/utils/types";
+'use client'
+
+import { TProduct, TOrders } from "@/app/utils/types";
 import ProductListInOrder from "./productListInOrder";
+import ButtonMain from "@/app/uiComponents/kit/button";
+import { fetchProductsInOrder } from "@/app/utils/dataFetching";
+import { Active, Archive, Trash } from "@/app/uiComponents/kit/iconComponent";
 
-interface IProps {
-  productsInOrder: TProduct[],
-  archived: boolean
-}
-
-const ProductsInOrder = ({ productsInOrder, archived }: IProps) => {
+const ProductsInOrder = ({ order }: { order: TOrders }) => {
   return (
     <div className="py-4 relative w-[840px]">
       <div className="flex pl-4">
@@ -16,19 +16,24 @@ const ProductsInOrder = ({ productsInOrder, archived }: IProps) => {
         <p className="w-[120px] text-center">Кількість</p>
         <p className="w-[120px] text-right">Сума</p>
       </div>
-      <ProductListInOrder products={productsInOrder} />
+
+      <ProductListInOrder orderNumber={order.order_number} />
+
       <div className="min-w-[300px] flex justify-center items-center gap-x-4 absolute right-[-125px] bottom-4">
-        {archived && (
-          <ButtonMain style="redSmall" clickFn={() => setPopUpIsOpened(!popUpIsOpened)}>
+        {order.archived && (
+          <ButtonMain style="redSmall" clickFn={
+            () => { console.log('Видалити замовлення ..') }
+          }>
             <span className="flex justify-center gap-x-2 px-4">
               <Trash />
               Видалити
             </span>
           </ButtonMain>
         )}
-
-        <ButtonMain style="transparent" clickFn={toArchive}>
-          {archived ? (
+        <ButtonMain style="transparent" clickFn={
+          () => { console.log("функція Повернути з архіву ...") }
+        }>
+          {order.archived ? (
             <span className="flex justify-center gap-x-2 px-4">
               <Active />
               Повернути з архіву

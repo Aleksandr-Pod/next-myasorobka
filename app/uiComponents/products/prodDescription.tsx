@@ -13,7 +13,7 @@ export default function ProdDescription({ product }: { product: TProduct }) {
         height={168}
         className={"h-[168px] w-full object-cover rounded-t-3xl"}
       />
-      <p className="px-2 py-1 text-center font-bold">{product.name}</p>
+      <p className="px-2 py-1 text-center font-bold">{product.product_name}</p>
       <Line active />
       <p className="px-2 py-1 text-center font-basic">
         {product.price} грн / {product.unit}

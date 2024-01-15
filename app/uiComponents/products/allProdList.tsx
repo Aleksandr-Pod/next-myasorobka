@@ -1,4 +1,3 @@
-
 import { fetchProducts } from "@/app/utils/dataFetching";
 import Categories from "./categories";
 import ProdList from "./productList";
